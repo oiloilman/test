@@ -1,9 +1,12 @@
-from PIL import Image
-import cv2
-import numpy as np
+import shutil
 import requests
-image=Image.open(requests.get("https://previews.123rf.com/images/darrenwhi/darrenwhi1310/darrenwhi131000024/24022179-photo-of-many-cars-with-one-a-different-color.jpg", stream=True).raw)
-#image =resize((420,250))
 
-image_array=np.array(image)
-image 
+my_url = 'https://www.washingtonian.com/wp-content/uploads/2017/06/6-30-17-goat-yoga-congressional-cemetery-1-994x559.jpg'
+response = requests.get(my_url, stream=True)
+with open('my_image.png', 'wb') as file:
+    shutil.copyfileobj(response.raw, file)
+del response
+from PIL import Image
+
+img = Image.open('my_image.png')
+img.show()
