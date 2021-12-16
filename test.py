@@ -1,2 +1,2 @@
 import as streamlit
-st.video("https://www.youtube.com/watch?v=DrKLYvLPidw")
+st.video(https://www.youtube.com/watch?v=DrKLYvLPidw)
