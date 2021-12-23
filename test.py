@@ -24,5 +24,4 @@ def style_transfer(image, model):
     output = np.clip(output, 0.0, 1.0)
     output = imutils.resize(output, width=500)
     return output
-© 2021 GitHub, Inc.
-Terms
+
