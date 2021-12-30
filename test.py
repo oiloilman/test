@@ -1,8 +1,8 @@
 import threading
 import numpy as np
-#import streamlit as st
+import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, ClientSettings
-#from PIL import Image
+from PIL import Image
 import cv2
 import imutils
 from neural_style_transfer import get_model_from_path, style_transfer
@@ -34,14 +34,14 @@ def image_input(style_model_name):
     st.image(generated, channels='BGR', clamp=True)
 
 
-#def webcam_input(style_model_name):
-    #st.header("Webcam Live Feed")
-    #WIDTH = st.sidebar.select_slider('QUALITY (May reduce the speed)', list(range(150, 501, 50)))
+def webcam_input(style_model_name):
+    st.header("Webcam Live Feed")
+    WIDTH = st.sidebar.select_slider('QUALITY (May reduce the speed)', list(range(150, 501, 50)))
 
-    #class NeuralStyleTransferTransformer(VideoTransformerBase):
-        #_width = WIDTH
-        #_model_name = style_model_name
-        #_model = None
+    class NeuralStyleTransferTransformer(VideoTransformerBase):
+        _width = WIDTH
+        _model_name = style_model_name
+        _model = None
 
         def __init__(self) -> None:
             self._model_lock = threading.Lock()
