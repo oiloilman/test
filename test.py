@@ -1,3 +1,4 @@
+
 from PIL import Image
 import numpy as np
 
@@ -17,4 +18,5 @@ bitmap = np.array(bitmap).reshape([ary.shape[0], ary.shape[1]])
 bitmap = np.dot((bitmap > 128).astype(float),255)
 im = Image.fromarray(bitmap.astype(np.uint8))
 im.save('road.bmp')
-st.image(
+st.image(bitmap)
+
